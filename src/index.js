@@ -29,7 +29,6 @@ const arrayRemoveItem = (array, itemToRemove) => {
     else if (index === 0) array.shift();
 }
 
-
 // default event
 export const defaultEvent = 'change';
 
@@ -94,11 +93,11 @@ subscribable.prototype = {
         if (event) {
             return this._subscriptions[event] && this._subscriptions[event].length || 0;
         } else {
-            let total = 0;
-            for (let subscriptions in this._subscriptions) {
-                total += subscriptions.length;
-            }
-            return total;
+          let total = 0;
+          Object.entries(this._subscriptions).forEach(([key, value]) => {
+            total +=value.length;
+          });
+          return total;
         }
     },
 };
