@@ -24,7 +24,7 @@ subscription.prototype = {
  * @param itemToRemove
  */
 const arrayRemoveItem = (array, itemToRemove) => {
-    var index = array.indexOf(array, itemToRemove);
+    var index = array.indexOf(itemToRemove);
     if (index > 0) array.splice(index, 1);
     else if (index === 0) array.shift();
 }
@@ -47,14 +47,14 @@ subscribable.prototype = {
     },
 
     subscribe(callback, callbackTarget, event = defaultEvent) {
-        const event = event;
         const boundCallback = callbackTarget ? callback.bind(callbackTarget) : callback;
+        const that = this;
         const subscriptionInstance = new subscription(this, boundCallback, () => {
-            arrayRemoveItem(this._subscriptions[event], subscriptionInstance);
+            arrayRemoveItem(that._subscriptions[event], subscriptionInstance);
             this.afterSubscriptionRemove && this.afterSubscriptionRemove(event);
         });
         this.beforeSubscriptionAdd && this.beforeSubscriptionAdd(event);
-        if (!this._subscriptions[event]) this._subscriptions = [];
+        if (!this._subscriptions[event]) this._subscriptions[event] = [];
         this._subscriptions[event].push(subscriptionInstance);
         return subscriptionInstance;
     },
@@ -63,7 +63,7 @@ subscribable.prototype = {
         if (event === defaultEvent) this.updateVersion();
         if (this.hasSubscriptionsForEvent(event)) {
             try {
-                this._subscriptions['event'].forEach((subscriptionInstance) => {
+                this._subscriptions[event].forEach((subscriptionInstance) => {
                     if (!subscriptionInstance.isDisabled) {
                         subscriptionInstance.callback(notifiableValue)
                     }
