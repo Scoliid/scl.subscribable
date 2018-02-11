@@ -1,21 +1,21 @@
 {
-  "name": "subscribable",
-  "version": "0.0.1",
-  "description": "Subscribable is a Pub/Sub lib.",
+  "name": "scl.subscribable",
+  "version": "0.0.2",
+  "description": "scl.subscribable is a Pub/Sub lib.",
   "main": "index.js",
   "scripts": {
     "test": "karma start karma.conf.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/superwzx/subscribable.git"
+    "url": "git+https://github.com/superwzx/scl.subscribable.git"
   },
   "author": "wzx175@gmail.com",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/superwzx/subscribable/issues"
+    "url": "https://github.com/superwzx/scl.subscribable/issues"
   },
-  "homepage": "https://github.com/superwzx/subscribable#readme",
+  "homepage": "https://github.com/superwzx/scl.subscribable#readme",
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
