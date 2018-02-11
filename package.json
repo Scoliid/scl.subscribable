@@ -1,7 +1,7 @@
 {
-  "name": "subscribable",
-  "version": "0.0.1",
-  "description": "Subscribable is a Pub/Sub lib.",
+  "name": "sli.subscribable",
+  "version": "0.0.2",
+  "description": "sli.subscribable is a Pub/Sub lib.",
   "main": "index.js",
   "scripts": {
     "test": "karma start karma.conf.js"
