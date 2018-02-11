@@ -4,7 +4,7 @@
 
 import {subscribable, isSubscribable} from '../index.js';
 
-describe('Obserbable', () => {
+describe('subscribable', () => {
   it('should declare that it is subscribable', () => {
     const instance = new subscribable();
       expect(isSubscribable(instance)).toEqual(true);
