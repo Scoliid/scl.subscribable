@@ -35,8 +35,10 @@ export const defaultEvent = 'change';
 /**
  * subscribable
  */
-export const subscribable = function() {
-    this.init(this);
+export const subscribable = function(target) {
+    target = target || this;
+    target.init(target);
+    return target;
 }
 
 subscribable.prototype = {
