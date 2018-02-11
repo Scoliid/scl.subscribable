@@ -35,10 +35,8 @@ export const defaultEvent = 'change';
 /**
  * subscribable
  */
-export const subscribable = function(target) {
-    target = target || this;
-    target.init(target);
-    return target;
+export const subscribable = function() {
+    this.init(this);
 }
 
 subscribable.prototype = {
@@ -104,7 +102,6 @@ subscribable.prototype = {
     },
 };
 
-subscribable.fn = subscription.prototype;
 
 export function isSubscribable(instance) {
     return instance != null && typeof instance.subscribe == 'function' && typeof instance.notifySubscribers == 'function';
